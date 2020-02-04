@@ -3361,15 +3361,7 @@ class Sumcoin(Coin):
     REORG_LIMIT = 800
     RPC_PORT = 3332
     PEER_DEFAULT_PORTS = {'t': '53332', 's': '53333'}
-    PEERS = [
-        'e1-sum.electrum-bynd.com s t',
-        'e2-sum.electrum-bynd.com s t',
-        'sum.electrum-bynd.com s t',
-        'sum1.electrum-bynd.com s t',
-        '209.97.130.23 s t',
-        '139.59.79.68 s t',
-        '159.65.72.249 s t'
-    ]
+    PEERS = []
 
 
 #class SumcoinTestnet(Sumcoin):
