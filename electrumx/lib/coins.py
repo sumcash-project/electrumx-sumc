@@ -3360,6 +3360,7 @@ class Sumcoin(Coin):
     TX_PER_BLOCK = 2
     REORG_LIMIT = 800
     RPC_PORT = 3332
+    PEER_DEFAULT_PORTS = {'t': '53332', 's': '53333'}
     PEERS = []
 
 
