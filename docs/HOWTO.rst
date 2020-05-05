@@ -27,15 +27,15 @@ DB Engine        A database engine package is required; two are
 Some coins need an additional package, typically for their block hash
 functions.  For example, `x11_hash`_ is required for DASH.
 
-You **must** to be running a non-pruning bitcoin daemon with::
+You **must** to be running a non-pruning sumcoin daemon with::
 
   txindex=1
 
 set in its configuration file.  If you have an existing installation
-of bitcoind and have not previously set this you will need to reindex
+of sumcoind and have not previously set this you will need to reindex
 the blockchain with::
 
-  bitcoind -reindex
+  sumcoind -reindex
 
 which can take some time.
 
@@ -51,7 +51,7 @@ used to either.
 When building the database from the genesis block, ElectrumX has to
 flush large quantities of data to disk and its DB.  You will have a
 better experience if the database directory is on an SSD than on an
-HDD.  Currently to around height 447,100 of the Bitcoin blockchain the
+HDD.  Currently to around height 447,100 of the Sumcoin blockchain the
 final size of the leveldb database, and other ElectrumX file metadata
 comes to just over 18.7GB (17.5 GiB).  LevelDB needs a bit more for
 brief periods, and the block chain is only getting longer, so I would
@@ -259,11 +259,11 @@ from heights 363,000 to 378,000 is the most sluggish::
 
 *Machine A*: a low-spec 2011 1.6GHz AMD E-350 dual-core fanless CPU,
 8GB RAM and a DragonFlyBSD UFS fileystem on an SSD.  It requests
-blocks over the LAN from a bitcoind on machine B.  :envvar:`DB_CACHE`
+blocks over the LAN from a sumcoind on machine B.  :envvar:`DB_CACHE`
 the default of 1,200.  LevelDB.
 
 *Machine B*: a late 2012 iMac running Sierra 10.12.2, 2.9GHz quad-core
-Intel i5 CPU with an HDD and 24GB RAM.  Running bitcoind on the same
+Intel i5 CPU with an HDD and 24GB RAM.  Running sumcoind on the same
 machine.  :envvar:`DB_CACHE` set to 1,800.  LevelDB.
 
 For chains other than bitcoin-mainnet sychronization should be much
@@ -329,7 +329,7 @@ Here is typical log output on startup::
   INFO:BlockProcessor:creating metadata diretcory
   INFO:BlockProcessor:software version: ElectrumX 0.10.2
   INFO:BlockProcessor:DB version: 5
-  INFO:BlockProcessor:coin: Bitcoin
+  INFO:BlockProcessor:coin: Sumcoin
   INFO:BlockProcessor:network: mainnet
   INFO:BlockProcessor:height: -1
   INFO:BlockProcessor:tip: 0000000000000000000000000000000000000000000000000000000000000000

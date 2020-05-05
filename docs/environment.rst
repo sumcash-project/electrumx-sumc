@@ -90,17 +90,17 @@ case a default value will be assumed.
 
 Here are some examples of valid services::
 
-  tcp://host.domain.tld:50001           # Hostname, lowercase protocol, port
-  SSL://23.45.67.78:50002               # An IPv4 address, upper-case protocol, port
+  tcp://host.domain.tld:53332           # Hostname, lowercase protocol, port
+  SSL://23.45.67.78:53333               # An IPv4 address, upper-case protocol, port
   rpC://localhost                       # Host as a string, mixed-case protocol, default port
   ws://[1234:5678:abcd::5601]:8000      # Host as an IPv6 address
-  wss://h3ubaasdlkheryasd.onion:50001   # Host as a Tor ".onion" address
+  wss://h3ubaasdlkheryasd.onion:53332   # Host as a Tor ".onion" address
   rpc://:8000                           # Default host, port given
   host.domain.tld:5151                  # Default protocol, hostname, port
   rpc://                                # RPC protocol, default host and port
 
 .. note:: ElectrumX will not serve any incoming connections until it has fully caught up
-          with your bitcoin daemon.  The only exception is local **RPC** connections,
+          with your Sumcoin daemon.  The only exception is local **RPC** connections,
           which are served at any time after the server has initialized.
 
 .. envvar:: SERVICES
@@ -132,9 +132,9 @@ Here are some examples of valid services::
 
   Here is an example value of the :envvar:`SERVICES` environment variable::
 
-    tcp://:50001,ssl://:50002,wss://:50004,rpc://
+    tcp://:53332,ssl://:53333,wss://:50004,rpc://
 
-  This serves **tcp**, **ssl**, **wss** on all interfaces on ports 50001, 50002 and 50004
+  This serves **tcp**, **ssl**, **wss** on all interfaces on ports 53332, 53333 and 50004
   respectively.  **rpc** is served on its default host :const:`localhost` and default port
   :const:`8000`.
 
@@ -228,7 +228,7 @@ These environment variables are optional:
   + ``$DAEMON_VERSION`` is replaced with the daemon's version as a
     dot-separated string. For example ``0.12.1``.
   + ``$DAEMON_SUBVERSION`` is replaced with the daemon's user agent
-    string.  For example, ``/BitcoinUnlimited:0.12.1(EB16; AD4)/``.
+    string.  For example, ``/Sumcoin:0.17.1(EB16; AD4)/``.
   + ``$DONATION_ADDRESS`` is replaced with the address from the
     :envvar:`DONATION_ADDRESS` environment variable.
 
@@ -259,7 +259,7 @@ These environment variables are optional:
   The maximum number of blocks to be able to handle in a chain
   reorganisation.  ElectrumX retains some fairly compact undo
   information for this many blocks in levelDB.  The default is a
-  function of :envvar:`COIN` and :envvar:`NET`; for Bitcoin mainnet it
+  function of :envvar:`COIN` and :envvar:`NET`; for Sumcoin mainnet it
   is 200.
 
 .. envvar:: EVENT_LOOP_POLICY
@@ -313,7 +313,7 @@ raise them.
   the largest raw transaction you will be able to serve to a client is
   just under half of :envvar:`MAX_SEND`, as each raw byte becomes 2
   hexadecimal ASCII characters on the wire.  Very few transactions on
-  Bitcoin mainnet are over 500KB in size.
+  Sumcoin mainnet are over 500KB in size.
 
 .. envvar:: COST_SOFT_LIMIT
 .. envvar:: COST_HARD_LIMIT
@@ -325,7 +325,7 @@ raise them.
   milliseconds, and :envvar:`INITIAL_CONCURRENT` to :const:`10` concurrent requests.
 
   The server prices each request made to it based upon an estimate of the resources needed
-  to process it.  Factors include whether the request uses bitcoind, how much bandwidth
+  to process it.  Factors include whether the request uses sumcoind, how much bandwidth
   it uses, and how hard it hits the databases.
 
   To set a base for the units, a :func:`blockchain.scripthash.subscribe` subscription to
