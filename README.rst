@@ -20,3 +20,15 @@ See `readthedocs <https://electrumx.readthedocs.io/>`_.
 
 
 **Neil Booth**  kyuupichan@gmail.com  https://github.com/kyuupichan
+
+## Quick start commands
+
+Start ElectrumX by running:
+
+`service electrumx start`
+
+Check the logs and indexing progress of ElectrumX with:
+
+`journalctl -u electrumx -f`
+
+If everything installed correctly, you should see ElectrumX properly syncs with your Sumcoin node and listens for incoming connections.
