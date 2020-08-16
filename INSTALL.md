@@ -48,31 +48,45 @@ INFO:    electrumx has been installed successfully. Edit /etc/electrumx.conf to 
 
 To run SSL / HTTPS you need to generate a self-signed certificate using openssl. You could just comment out the SSL / HTTPS ports in the config and run without, but this is not recommended.
 
+### Make a data directory to make the server keys in
+
+```
+mkdir ~/.electrumx
+```
+Synchronizing with a Sumcoin node takes anywhere between 3-9 hours depending on your hardware.
+
+If you want to speed up the process a bit, download one of these data files and put it in the ~/.electrumx folder.
+
+## Create a self-signed certificate
+To allow Electrum wallets to connect to your server over SSL you need to create a self-signed certificate.
+
+Go to the data folder:
+```
+cd ~/.electrumx
+```
+
+and generate your key:
+
 Use the sample code below to create a self-signed cert with a recommended validity of 5 years. You may supply any information for your sign request to identify your server. They are not currently checked by the client except for the validity date. When asked for a challenge password just leave it empty and press enter.
 
 ```
-openssl genrsa -des3 -passout pass:x -out server.pass.key 2048
-openssl rsa -passin pass:x -in server.pass.key -out server.key
-```
-...writing RSA key
-```
-rm server.pass.key
+openssl genrsa -out server.key 2048
 openssl req -new -key server.key -out server.csr
 ```
 
-```
-...
-Country Name (2 letter code) [AU]:US
-State or Province Name (full name) [Some-State]:California
-Common Name (eg, YOUR name) []: electrum-server.tld
-...
-A challenge password []:
-...
-```
+Follow the on-screen information. It will ask for certificate details such as your country and password. You can leave those fields empty.
+
+When done, create a certificate:
 
 ```
 openssl x509 -req -days 1825 -in server.csr -signkey server.key -out server.crt
 ```
+These commands will create 2 files: server.key and server.crt.
+
+When configuring the ElectrumX instance, make sure to add server.key to SSL_KEYFILE and server.crt to SSL_CERTFILE. More on this in the next step.
+
+
+
 The server.crt file is your certificate suitable for the ssl_certfile= parameter and server.key corresponds to ssl_keyfile= in your Electrum server config.
 
 Starting with Electrum 1.9, the client will learn and locally cache the SSL certificate for your server upon the first request to prevent man-in-the middle attacks for all further connections.
