@@ -3363,6 +3363,29 @@ class Sumcoin(Coin):
     PEER_DEFAULT_PORTS = {'t': '53332', 's': '53333'}
     PEERS = []
 
+# Source: https://github.com/fastcoin-project/fastcoin
+class Fastcoin(AuxPowMixin, Coin):
+    NAME = "Fastcoin"
+    SHORTNAME = "FST"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("0488b21e") #
+    XPRV_VERBYTES = bytes.fromhex("0488ade4") #
+    P2PKH_VERBYTE = bytes.fromhex("60")  
+    # P2PKH_VERBYTE = base58Prefixes[PUBKEY_ADDRESS] from hex to decimal
+    P2SH_VERBYTES = [bytes.fromhex("14")]  
+    # P2SH_VERBYTES base58Prefixes[SCRIPT_ADDRESS] = fro hex to decimal
+    WIF_BYTE = bytes.fromhex("E0")
+    # WIF_BYTE ase58Prefixes[SECRET_KEY] = decimal to hex
+    GENESIS_HASH = ('ecba185817b726ef62e53afb14241a80'
+                    '95bd9613d2d3df679911029b83c98e5b')
+    # Genesis to fit length
+    TX_COUNT = 2068178
+    TX_COUNT_HEIGHT = 11485363
+    TX_PER_BLOCK = 2
+    REORG_LIMIT = 2000
+    RPC_PORT = 9527
+    PEER_DEFAULT_PORTS = {'t': '59527', 's': '59526'}
+    PEERS = []    # add when available
 
 #class SumcoinTestnet(Sumcoin):
 #    SHORTNAME = "TSUM"
