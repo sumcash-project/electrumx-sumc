@@ -4,7 +4,7 @@
     :target: https://coveralls.io/github/kyuupichan/electrumx
 
 ===========================================================
-ElectrumX - Reimplementation of electrum-server for Sumcoin
+ElectrumX - Reimplementation of electrum-server for Sumcash
 ===========================================================
 
 For a future network with bigger blocks.
@@ -31,4 +31,4 @@ Check the logs and indexing progress of ElectrumX with:
 
 `journalctl -u electrumx -f`
 
-If everything installed correctly, you should see ElectrumX properly syncs with your Sumcoin node and listens for incoming connections.
+If everything installed correctly, you should see ElectrumX properly syncs with your Sumcash node and listens for incoming connections.

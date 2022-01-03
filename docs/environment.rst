@@ -100,7 +100,7 @@ Here are some examples of valid services::
   rpc://                                # RPC protocol, default host and port
 
 .. note:: ElectrumX will not serve any incoming connections until it has fully caught up
-          with your Sumcoin daemon.  The only exception is local **RPC** connections,
+          with your Sumcash daemon.  The only exception is local **RPC** connections,
           which are served at any time after the server has initialized.
 
 .. envvar:: SERVICES
@@ -228,7 +228,7 @@ These environment variables are optional:
   + ``$DAEMON_VERSION`` is replaced with the daemon's version as a
     dot-separated string. For example ``0.12.1``.
   + ``$DAEMON_SUBVERSION`` is replaced with the daemon's user agent
-    string.  For example, ``/Sumcoin:0.17.1(EB16; AD4)/``.
+    string.  For example, ``/Sumcash:0.17.1(EB16; AD4)/``.
   + ``$DONATION_ADDRESS`` is replaced with the address from the
     :envvar:`DONATION_ADDRESS` environment variable.
 
@@ -259,7 +259,7 @@ These environment variables are optional:
   The maximum number of blocks to be able to handle in a chain
   reorganisation.  ElectrumX retains some fairly compact undo
   information for this many blocks in levelDB.  The default is a
-  function of :envvar:`COIN` and :envvar:`NET`; for Sumcoin mainnet it
+  function of :envvar:`COIN` and :envvar:`NET`; for Sumcash mainnet it
   is 200.
 
 .. envvar:: EVENT_LOOP_POLICY
@@ -313,7 +313,7 @@ raise them.
   the largest raw transaction you will be able to serve to a client is
   just under half of :envvar:`MAX_SEND`, as each raw byte becomes 2
   hexadecimal ASCII characters on the wire.  Very few transactions on
-  Sumcoin mainnet are over 500KB in size.
+  Sumcash mainnet are over 500KB in size.
 
 .. envvar:: COST_SOFT_LIMIT
 .. envvar:: COST_HARD_LIMIT
@@ -325,7 +325,7 @@ raise them.
   milliseconds, and :envvar:`INITIAL_CONCURRENT` to :const:`10` concurrent requests.
 
   The server prices each request made to it based upon an estimate of the resources needed
-  to process it.  Factors include whether the request uses sumcoind, how much bandwidth
+  to process it.  Factors include whether the request uses sumcashd, how much bandwidth
   it uses, and how hard it hits the databases.
 
   To set a base for the units, a :func:`blockchain.scripthash.subscribe` subscription to

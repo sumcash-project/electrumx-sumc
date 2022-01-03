@@ -4,7 +4,7 @@
 ###############
 
 # configure electrumx
-export COIN=Sumcoin
+export COIN=Sumcash
 export DAEMON_URL=http://user:password@127.0.0.1:3332/
 export NET=mainnet
 export CACHE_MB=400
@@ -33,4 +33,3 @@ ulimit -n 10000
 
 # add this line to crontab -e
 # @reboot /path/to/run_electrumx.sh
-
