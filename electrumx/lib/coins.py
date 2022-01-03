@@ -3363,6 +3363,28 @@ class Sumcoin(Coin):
     PEER_DEFAULT_PORTS = {'t': '53332', 's': '53333'}
     PEERS = []
 
+# Source: https://github.com/sumcash-project/sumcash
+class Sumcash(Coin):
+    NAME = "Sumcash"
+    SHORTNAME = "SUMC"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("")
+    XPRV_VERBYTES = bytes.fromhex("")
+    P2PKH_VERBYTE = bytes.fromhex("3f")
+    P2SH_VERBYTES = [bytes.fromhex("c8"), bytes.fromhex("05")]
+    WIF_BYTE = bytes.fromhex("bf")
+    GENESIS_HASH = ('37d4696c5072cd012f3b7c651e5ce56a'
+                    '1383577e4edacc2d289ec9b25eebfd5e')
+    DESERIALIZER = lib_tx.DeserializerSegWit
+    TX_COUNT = 976394
+    TX_COUNT_HEIGHT = 659520
+    TX_PER_BLOCK = 2
+    REORG_LIMIT = 800
+    RPC_PORT = 9998
+    PEER_DEFAULT_PORTS = {'t': '53332', 's': '53333'}
+    PEERS = []
+
+
 # Source: https://github.com/fastcoin-project/fastcoin
 class Fastcoin(AuxPowMixin, Coin):
     NAME = "Fastcoin"
@@ -3370,9 +3392,9 @@ class Fastcoin(AuxPowMixin, Coin):
     NET = "mainnet"
     XPUB_VERBYTES = bytes.fromhex("0488b21e") #
     XPRV_VERBYTES = bytes.fromhex("0488ade4") #
-    P2PKH_VERBYTE = bytes.fromhex("60")  
+    P2PKH_VERBYTE = bytes.fromhex("60")
     # P2PKH_VERBYTE = base58Prefixes[PUBKEY_ADDRESS] from hex to decimal
-    P2SH_VERBYTES = [bytes.fromhex("14")]  
+    P2SH_VERBYTES = [bytes.fromhex("14")]
     # P2SH_VERBYTES base58Prefixes[SCRIPT_ADDRESS] = fro hex to decimal
     WIF_BYTE = bytes.fromhex("E0")
     # WIF_BYTE ase58Prefixes[SECRET_KEY] = decimal to hex
