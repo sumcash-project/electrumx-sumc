@@ -3368,21 +3368,22 @@ class Sumcash(Coin):
     NAME = "Sumcash"
     SHORTNAME = "SUMC"
     NET = "mainnet"
-    XPUB_VERBYTES = bytes.fromhex("") #newer version required
-    XPRV_VERBYTES = bytes.fromhex("") #newer version required
+    XPUB_VERBYTES = bytes.fromhex("f488b21e") #base58prefixes[EXT_PUBLIC_KEY] √
+    XPRV_VERBYTES = bytes.fromhex("f488ade4") #base58prefixes[EXT_SECRET_KEY] √
     P2PKH_VERBYTE = bytes.fromhex("3f") #√
-    P2SH_VERBYTES = [bytes.fromhex("c8"), bytes.fromhex("05")] #todo
-    WIF_BYTE = bytes.fromhex("bf") # todo
-    GENESIS_HASH = ('0000000310f7abf5ecab3c2ae20717f1'. #√
-                    'e119e79ba0ec5897a0387329f01fd15d'). #√
+    P2SH_VERBYTES = [bytes.fromhex("c8"), bytes.fromhex("05")] #SEGWIT & legacy VALUES, base58Prefixes[SCRIPT_ADDRESS2] 200 = C8, base58Prefixes[SCRIPT_ADDRESS] 5 = 05
+    WIF_BYTE = bytes.fromhex("bf") #base58Prefixes[SECRET_KEY] 191
+    GENESIS_HASH = ('8207cc10210f8c1cc2c30d435e637330'
+                    'eb27576bcd126e823e95a81da8769008') #√
     DESERIALIZER = lib_tx.DeserializerSegWit
-    TX_COUNT = 1 #todo
-    TX_COUNT_HEIGHT = 1 #todo
+    TX_COUNT = 10 #todo
+    TX_COUNT_HEIGHT = 725 #todo
     TX_PER_BLOCK = 2
     REORG_LIMIT = 800
     RPC_PORT = 9998 #√
     PEER_DEFAULT_PORTS = {'t': '53332', 's': '53333'}
     PEERS = []
+
 
 
 # Source: https://github.com/fastcoin-project/fastcoin
